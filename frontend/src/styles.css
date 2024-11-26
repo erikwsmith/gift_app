@@ -161,7 +161,8 @@ button:hover {
     padding: 13px;
     width: 100%;
     border: 1px solid black;
-    text-align: left;
+    display:flex;
+    justify-content: space-between;
     outline: none;
     font-size: 20px;
     transition: 0.4s;
@@ -171,17 +172,19 @@ button:hover {
     background-color: #000080;
     opacity: 1;
 }  
-.accordion:after {
-    content: '<i class="fa-solid fa-triangle"></i>';
-    transform: rotate(3.142rad);
+.accordion:after {    
     color: white;
     font-weight: bold;
     float: right;
     margin-left: 5px;
 }  
-.active:after {
-    content: "<i class="fa-solid fa-triangle"></i>";
+.active i {    
+    transform: rotate(180deg);
 }  
+.toggle-char {
+    font-size: 28px;
+}
+
 .panel {
     padding: 0 18px;
     background-color: gainsboro;    

@@ -1,5 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {Button, Accordion, Modal} from 'react-bootstrap';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTriangle} from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = () => {    
     const [username, setUsername]=useState('');
@@ -223,7 +225,9 @@ const NavBar = () => {
             </div>
             <div id="mainContent" className="main-content-hidden">
                 <div id="accordion-container">
-                    <button id="accordion-btn" className="accordion" onClick={(e)=> {handleAccordion(e)}}>Gifts for Me</button>                    
+                    <button id="accordion-btn" className="accordion" onClick={(e)=> {handleAccordion(e)}}>
+                        Gifts for Me <i className="fa fa-caret-down toggle-char"></i>
+                    </button>                    
                         <div className="panel panel-hidden">
                             <div className="add-gift" onClick={handleAddGift}>
                                 <button className="add-gift-btn">Add New Gift</button>
@@ -248,7 +252,9 @@ const NavBar = () => {
                     
                     {otherUsers && otherUsers.map((user) => 
                         <div key={user._id}>
-                        <button className="accordion" onClick={(e)=> {handleAccordion(e)}}>{`${user.first_name} ${user.last_name}`}</button>   
+                        <button className="accordion" onClick={(e)=> {handleAccordion(e)}}>{`${user.first_name} ${user.last_name}`}
+                            <i className="fa fa-caret-down toggle-char"></i>
+                            </button>   
                         <div className="panel panel-hidden">                      
                             {user.gifts && user.gifts.map((gift, index) =>
                                 <div key={`${gift._id} - ${index}`} className="gift-div">
