@@ -172,14 +172,15 @@ button:hover {
     opacity: 1;
 }  
 .accordion:after {
-    content: '\2BC6';
+    content: '<i class="fa-solid fa-triangle"></i>';
+    transform: rotate(3.142rad);
     color: white;
     font-weight: bold;
     float: right;
     margin-left: 5px;
 }  
 .active:after {
-    content: "\2BC5";
+    content: "<i class="fa-solid fa-triangle"></i>";
 }  
 .panel {
     padding: 0 18px;
