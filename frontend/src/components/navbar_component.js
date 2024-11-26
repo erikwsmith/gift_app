@@ -23,7 +23,8 @@ const NavBar = () => {
     //fetch User data from MongoDB
     useEffect( ()=> {
         const fetchData = async()=>{
-            const userQuery = await fetch('http://localhost:4000/users');
+            //const userQuery = await fetch('http://localhost:4000/users');
+            const userQuery = await fetch('https://gift-app-wcyk.onrender.com/users');
             let userJSON = await userQuery.json();            
                 setUsers(userJSON);      
         };
@@ -32,7 +33,8 @@ const NavBar = () => {
     }, [loggedUser]);    
 
     const fetchGifts = async() => {
-        const giftSearch = await fetch('http://localhost:4000/users/' + loggedUser._id);
+        //const giftSearch = await fetch('http://localhost:4000/users/' + loggedUser._id);
+        const giftSearch = await fetch('https://gift-app-wcyk.onrender.com/users/' + loggedUser._id);
         let giftData = await giftSearch.json();         
         setLoggedUser(giftData);
              
@@ -58,7 +60,8 @@ const NavBar = () => {
         
         const user = {firstName, lastName, username, password, "gifts": newArray}; 
                 
-        await fetch('http://localhost:4000/users/' + loggedUser._id, {
+        //await fetch('http://localhost:4000/users/' + loggedUser._id, {
+        await fetch('https://gift-app-wcyk.onrender.com/users/' + loggedUser._id, {
             method: 'PATCH',
             body: JSON.stringify(user),
             headers: {
@@ -76,7 +79,8 @@ const NavBar = () => {
             loggedUser.gifts.splice(deletedIndex, 1);
                     
             const user = {firstName, lastName, username, password, "gifts": loggedUser.gifts};
-            const response = await fetch('http://localhost:4000/users/' + loggedUser._id, {
+            //const response = await fetch('http://localhost:4000/users/' + loggedUser._id, {
+            const response = await fetch('https://gift-app-wcyk.onrender.com/users/' + loggedUser._id, {
                 method: 'PATCH',
                 body: JSON.stringify(user),
                 headers: {
@@ -176,7 +180,8 @@ const NavBar = () => {
             //console.log(newGiftArray);
         }
         const user = {"gifts": newGiftArray};
-            const response = await fetch('http://localhost:4000/users/' + otherUserID, {
+            //const response = await fetch('http://localhost:4000/users/' + otherUserID, {
+            const response = await fetch('https://gift-app-wcyk.onrender.com/users/' + otherUserID, {
                 method: 'PATCH',
                 body: JSON.stringify(user),
                 headers: {
